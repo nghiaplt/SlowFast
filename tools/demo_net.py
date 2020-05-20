@@ -27,7 +27,8 @@ np.random.seed(20)
 class VideoReader(object):
 
     def __init__(self, cfg):
-        self.source = cfg.DEMO.DATA_SOURCE if cfg.DEMO.DATA_SOURCE != -1 else cfg.DATA_VIDEO
+        self.source = cfg.DEMO.DATA_SOURCE if cfg.DEMO.DATA_SOURCE != - \
+            1 else cfg.DEMO.DATA_VIDEO
         self.display_width = cfg.DEMO.DISPLAY_WIDTH
         self.display_height = cfg.DEMO.DISPLAY_HEIGHT
 
@@ -70,11 +71,11 @@ class VideoWriter(object):
 
     def __init__(self, cfg, out_width=0, out_height=0):
         if out_width > 0 and out_height > 0:
-            self.out = cv2.VideoWriter(cfg.OUT_VIDEO, cv2.VideoWriter_fourcc(
-                'M', 'J', 'P', 'G'), cfg.OUT_FRAME_RATE, (out_width, out_height))
+            self.out = cv2.VideoWriter(cfg.DEMO.OUT_VIDEO, cv2.VideoWriter_fourcc(
+                'M', 'J', 'P', 'G'), cfg.DEMO.OUT_FRAME_RATE, (out_width, out_height))
         else:
-            self.out = cv2.VideoWriter(cfg.OUT_VIDEO, cv2.VideoWriter_fourcc(
-                'M', 'J', 'P', 'G'), cfg.OUT_FRAME_RATE, (cfg.OUT_FRAME_WIDTH, cfg.OUT_FRAME_HEIGHT))
+            self.out = cv2.VideoWriter(cfg.DEMO.OUT_VIDEO, cv2.VideoWriter_fourcc(
+                'M', 'J', 'P', 'G'), cfg.DEMO.OUT_FRAME_RATE, (cfg.DEMO.OUT_FRAME_WIDTH, cfg.DEMO.OUT_FRAME_HEIGHT))
 
     def write(self, frame):
         self.out.write(frame)
