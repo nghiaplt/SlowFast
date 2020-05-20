@@ -146,8 +146,13 @@ def demo(cfg):
     frames = []
     pred_labels = []
     s = 0.
+    frame_counter = 0
     for able_to_read, frame in frame_provider:
         if not able_to_read:
+            # If Source is string means video
+            if isinstance(frame_provider.source, str):
+                print("Process video done!")
+                break
             # when reaches the end frame, clear the buffer and continue to the next one.
             frames = []
             continue
@@ -301,6 +306,8 @@ def demo(cfg):
                     fontScale=.65, color=(0, 235, 0), thickness=2)
 
         frame_writer.write(frame)
+        frame_counter += 1
+        print('Writing frame {} ...'.format(frame_counter))
         # Display the frame
         # cv2.imshow('SlowFast', frame)
         # hit Esc to quit the demo.
