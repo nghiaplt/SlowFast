@@ -27,7 +27,7 @@ np.random.seed(20)
 class VideoReader(object):
 
     def __init__(self, cfg):
-        self.source = cfg.DEMO.DATA_SOURCE
+        self.source = cfg.DEMO.DATA_SOURCE if cfg.DEMO.DATA_SOURCE != -1 else cfg.DATA_VIDEO
         self.display_width = cfg.DEMO.DISPLAY_WIDTH
         self.display_height = cfg.DEMO.DISPLAY_HEIGHT
 

@@ -65,7 +65,7 @@ DATA_LOADER:
 DEMO:
   ENABLE: True
   LABEL_FILE_PATH: "./demo/AVA/ava.names"
-  DATA_SOURCE: 2
+  DATA_SOURCE: -1
   DATA_VIDEO: "./demo/using_phone_4.mp4"
   # DISPLAY_WIDTH: 640
   # DISPLAY_HEIGHT: 480
