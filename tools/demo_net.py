@@ -268,6 +268,8 @@ def demo(cfg):
             # option 2: empty the buffer
             frames = []
             s = time() - start
+            print(
+                'Detection + Classification for {} frames: {} seconds'.format(seq_len, s))
 
         if cfg.DETECTION.ENABLE and pred_labels and boxes.any():
             for box, box_labels in zip(boxes.astype(int), pred_labels):
