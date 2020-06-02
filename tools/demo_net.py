@@ -3,20 +3,16 @@ import sys
 from time import time
 
 import numpy as np
-import pandas as pd
 import cv2
 import torch
 
 from slowfast.utils import logging
-from slowfast.datasets.cv2_transform import scale
-
-from video.reader import VideoReader
-from video.writer import VideoWriter
 
 from display.utils import display_boxes, display_text_label
 from initialize.utils import init_model, init_params
 
 from process.process_batch import process_frames_batch
+from process.process_frame import get_processed_frame
 
 logger = logging.get_logger(__name__)
 np.random.seed(20)
@@ -41,12 +37,9 @@ def demo(cfg):
             break
 
         if len(frames) != seq_len:
-            frame_processed = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame_processed = scale(cfg.DATA.TEST_CROP_SIZE, frame_processed)
+            frame_processed, mid_frame = get_processed_frame(
+                cfg, frame, frames, seq_len)
             frames.append(frame_processed)
-            if cfg.DETECTION.ENABLE and len(frames) == seq_len//2 - 1:
-                mid_frame = frame
-
         if len(frames) == seq_len:
             start = time()
             boxes, pred_labels = process_frames_batch(cfg, frames, mid_frame,

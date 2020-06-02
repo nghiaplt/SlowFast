@@ -1,6 +1,7 @@
 
 import numpy as np
 import torch
+import pandas as pd
 
 from slowfast.models import model_builder
 from slowfast.utils import logging
@@ -10,6 +11,11 @@ import slowfast.utils.checkpoint as cu
 from detectron2 import model_zoo
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
+
+
+from video.reader import VideoReader
+from video.writer import VideoWriter
+
 
 logger = logging.get_logger(__name__)
 np.random.seed(20)
