@@ -68,6 +68,7 @@ def init_model(cfg):
     logger.info(cfg)
 
     model = build_and_switch_demo_model(cfg)
+    load_checkpoint(cfg, model)
 
     return model
 
