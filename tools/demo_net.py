@@ -37,9 +37,13 @@ def demo(cfg):
             break
 
         if len(frames) != seq_len:
-            frame_processed, mid_frame = get_processed_frame(
-                cfg, frame, frames, seq_len)
+            frame_processed = get_processed_frame(cfg, frame)
+
+            if cfg.DETECTION.ENABLE and len(frames) == seq_len//2 - 1:
+                mid_frame = frame
+
             frames.append(frame_processed)
+
         if len(frames) == seq_len:
             start = time()
             boxes, pred_labels = process_frames_batch(cfg, frames, mid_frame,
