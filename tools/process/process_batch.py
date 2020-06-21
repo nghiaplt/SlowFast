@@ -32,7 +32,7 @@ def get_person_boxes(cfg, object_predictor, mid_frame, frame_provider):
 
 
 def extract_slow_fast_path_from_frames(cfg, frames):
-    inputs = torch.as_tensor(frames).float()
+    inputs = torch.as_tensor(np.array(frames)).float()
 
     inputs = inputs / 255.0
     # Perform color normalization.
