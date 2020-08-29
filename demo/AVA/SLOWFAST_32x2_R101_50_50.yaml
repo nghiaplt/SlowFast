@@ -64,7 +64,7 @@ DATA_LOADER:
   PIN_MEMORY: True
 DEMO:
   ENABLE: True
-  LABEL_FILE_PATH: "./demo/AVA/ava.names"
+  LABEL_FILE_PATH: "./demo/AVA/new_ava.names"
   DATA_SOURCE: -1
   DATA_VIDEO: "./demo/using_phone_4.mp4"
   # DISPLAY_WIDTH: 640
