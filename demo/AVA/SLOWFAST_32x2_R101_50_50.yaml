@@ -51,7 +51,7 @@ SOLVER:
   WEIGHT_DECAY: 1e-7
   OPTIMIZING_METHOD: sgd
 MODEL:
-  NUM_CLASSES: 8
+  NUM_CLASSES: 2
   ARCH: slowfast
   LOSS_FUNC: bce
   DROPOUT_RATE: 0.5
@@ -64,7 +64,7 @@ DATA_LOADER:
   PIN_MEMORY: True
 DEMO:
   ENABLE: True
-  LABEL_FILE_PATH: "./demo/AVA/new_ava.names"
+  LABEL_FILE_PATH: "./demo/AVA/new_new_ava.names"
   DATA_SOURCE: -1
   DATA_VIDEO: "./demo/using_phone_4.mp4"
   # DISPLAY_WIDTH: 640
