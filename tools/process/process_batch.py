@@ -97,7 +97,7 @@ def process_frames_batch(cfg, frames, mid_frame, frame_provider, object_predicto
         #   to change this section to make CUDA does the processing.
         preds = preds.cpu().detach().numpy()
         print(preds)
-        pred_masks = preds > .9
+        pred_masks = preds > cfg.DEMO.PREDS_THRESHHOLD
         label_ids = [np.nonzero(pred_mask)[0]
                      for pred_mask in pred_masks]
         pred_labels = [

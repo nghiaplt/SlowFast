@@ -459,6 +459,8 @@ _C.DEMO.OUT_FRAME_WIDTH = 0
 
 _C.DEMO.OUT_FRAME_HEIGHT = 0
 
+_C.DEMO.PREDS_THRESHHOLD = 0.85
+
 
 def _assert_and_infer_cfg(cfg):
     # BN assertions.
