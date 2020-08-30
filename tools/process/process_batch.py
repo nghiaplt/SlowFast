@@ -96,7 +96,8 @@ def process_frames_batch(cfg, frames, mid_frame, frame_provider, object_predicto
         #   RTX 2080 runs out of its memory, if your GPU is more powerful, I'd recommend
         #   to change this section to make CUDA does the processing.
         preds = preds.cpu().detach().numpy()
-        pred_masks = preds > .8
+        print(preds)
+        pred_masks = preds > .9
         label_ids = [np.nonzero(pred_mask)[0]
                      for pred_mask in pred_masks]
         pred_labels = [
